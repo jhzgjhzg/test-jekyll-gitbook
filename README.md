@@ -1,188 +1,118 @@
 ---
 layout: home
-title: Jekyll Gitbook Theme
+title: BiliBili UP Auxiliary System
 permalink: /
 ---
 
-Make Jelly site have a GitBook look!
+Assist Bilibili users in recording and analyzing live streaming data and video data.
 
-## Demo
+## Source Code
 
-Live demo on Github Pages: [https://sighingnow.github.io/jekyll-gitbook](https://sighingnow.github.io/jekyll-gitbook)
+GitHub Warehouse: [BiliBili-UP-Auxiliary-System
+](https://github.com/jhzgjhzg/BiliBili-UP-Auxiliary-System
+)
 
-[![Jekyll Themes](https://img.shields.io/badge/featured%20on-JekyllThemes-red.svg)](https://jekyll-themes.com/jekyll-gitbook/)
+[![Stable Version](https://img.shields.io/pypi/v/bili-uas?label=PyPI)](https://pypi.org/project/bili-uas/)
+[![LICENSE](https://img.shields.io/badge/LICENSE-GPLv3+-red)](LICENSE)
+[![Python](https://img.shields.io/badge/python-3.9|3.10|3.11-blue)](https://www.python.org)
 
-## Why Jekyll with GitBook
+## What can bili-uas do
+### Video
+- [x] Download video
+- [x] Download audio
+- [x] Generate a word cloud image
+- [ ] Predicting various data for publishing videos
+- [ ] ...
 
-GitBook is an amazing frontend style to present and organize contents (such as book chapters
-and blogs) on Web. The typical to deploy GitBook at [Github Pages][1]
-is building HTML files locally and then push to Github repository, usually to the `gh-pages`
-branch. It's quite annoying to repeat such workload and make it hard for people do version
-control via git for when there are generated HTML files to be staged in and out.
+### User
 
-This theme takes style definition out of generated GitBook site and provided the template
-for Jekyll to rendering markdown documents to HTML, thus the whole site can be deployed
-to [Github Pages][1] without generating and uploading HTML bundle every time when there are
-changes to the original repo.
+- [x] Get user data
+- [ ] Generate data change image and predict future changes
+- [x] Send a private message for collecting addresses to members of the Grand Navigation Group
+- [x] Collect address information from private messages
+- [ ] ...
+
+### Live
+
+- [x] Monitor live data, including gifts, sc, danmu, popularity, etc.
+- [x] Capture danmu with custom marks
+- [x] Generate data analysis image
+- [x] Provide video slicing suggestions
+- [ ] ...
+
+> **Warning**\
+> This library is only for learning and testing purposes.
+> Any consequences caused by unauthorized use of this module are not related to the developer.
+> If there is any infringement, please contact the developer to delete the relevant content.
+{: .block-warning }
+
 
 ## How to Get Started
 
-This theme can be used just as other [Jekyll themes][1] and support [remote theme][12],
-see [the official guide][13] as well.
+### Preparation environment
 
-You can introduce this jekyll theme into your own site by either
-
-- [Fork][3] this repository and add your markdown posts to the `_posts` folder.
-- Use as a remote theme in your [`_config.yml`][14](just like what we do for this
-  site itself),
-
-```yaml
-remote_theme: sighingnow/jekyll-gitbook
+Bili-uas requires `python>=3.9`, and lower versions have not been tested.\
+We recommend using Conda to manage dependencies. Make sure to install Conda before proceeding.\
+[Windows Installation Miniconda Guide](https://blog.csdn.net/weixin_43828245/article/details/124768518) \
+[macOS Installation Miniconda Guide](https://blog.csdn.net/tangsiqi130/article/details/130112475)
+```shell
+conda create -n bili-uas -y python=3.9
+conda activate bili-uas
+python -m pip install --upgrade pip
 ```
 
-### Deploy Locally with Jekyll Serve
+### Installation
 
-This theme can be ran locally using Ruby and Gemfiles.
-
-[Testing your GitHub Pages site locally with Jekyll](https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll/testing-your-github-pages-site-locally-with-jekyll) - GitHub
-
-## Full-text search
-
-The search functionality in jekyll-gitbook theme is powered by the [gitbook-plugin-search-pro][5] plugin and is enabled by default.
-
-[https://sighingnow.github.io/jekyll-gitbook/?q=generated](https://sighingnow.github.io/jekyll-gitbook/?q=generated)
-
-## Code highlight
-
-The code highlight style is configurable the following entry in `_config.yaml`:
-
-```yaml
-syntax_highlighter_style: colorful
+Easy option:
+```shell
+pip install --upgrade bili-uas
 ```
 
-The default code highlight style is `colorful`, the full supported styles can be found from [the rouge repository][6]. Customized
-style can be added to [./assets/gitbook/rouge/](./assets/gitbook/rouge/).
-
-## How to generate TOC
-
-The jekyll-gitbook theme leverages [jekyll-toc][4] to generate the *Contents* for the page.
-The TOC feature is not enabled by default. To use the TOC feature, modify the TOC
-configuration in `_config.yml`:
-
-```yaml
-toc:
-    enabled: true
-    h_min: 1
-    h_max: 3
+**OR** if you want the latest and greatest:
+```shell
+git clone https://github.com/jhzgjhzg/BiliBili-UP-Auxiliary-System.git
+cd BiliBili-UP-Auxiliary-System
+pip install --upgrade pip setuptools
+pip install -e .
 ```
 
-## Google Analytics, etc.
-
-The jekyll-gitboook theme supports embedding the [Google Analytics][7], [CNZZ][8] and [Application Insights][9] website analytical tools with the following
-minimal configuration in `_config.yaml`:
-
-```yaml
-tracker:
-  google_analytics: "<YOUR GOOGLE ANALYTICS KEY, e.g, UA-xxxxxx-x>"
-```
-
-Similarly, CNZZ can be added with the following configuration in `_config.yaml`
-
-```yaml
-tracker:
-  cnzz: "<YOUR CNZZ ANALYTICS KEY, e.g., xxxxxxxx>"
-```
-
-Application Insights can be added with the following configuration in `_config.yaml`
-
-```yaml
-tracker:
-  application_insights: "<YOUR APPLICATION INSIGHTS CONNECTION STRING>"
-```
-
-## Disqus comments
-
-[Disqus](https://disqus.com/) comments can be enabled by adding the following configuration in `_config.yaml`:
-
-```yaml
-disqushandler: "<YOUR DISQUS SHORTNAME>"
-```
-
-## Extra StyleSheet or Javascript elements
-
-You can add extra CSS or JavaScript references using configuration collections:
-
-- extra_css: for additional style sheets. If the url does not start by http, the path must be relative to the root of the site, without a starting `/`.
-- extra_header_js: for additional scripts to be included in the `<head>` tag, after the `extra_css` has been added. If the url does not start by http, the path must be relative to the root of the site, without a starting `/`.
-- extra_footer_js: for additional scripts to be included at the end of the HTML document, just before the site tracking script. If the url does not start by http, the path must be relative to the root of the site, without a starting `/`.
-
-## Customizing font settings
-
-The fonts can be customized by modifying the `.book.font-family-0` and `.book.font-family-1` entry in [`./assets/gitbook/custom.css`][10],
-
-```css
-.book.font-family-0 {
-    font-family: Georgia, serif;
-}
-.book.font-family-1 {
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-}
-```
-
-## Tips, Warnings and Dangers blocks
-
-The jekyll-gitbook theme supports customized kramdown attributes (`{: .block-tip }`, `{: .block-warning }`,
-`{: .block-danger }`) like that displayed in [the discord.js website][11]. The marker can be used like
-
-```markdown
-> ##### TIP
->
-> This guide is last tested with @napi-rs/canvas^0.1.20, so make sure you have
-> this or a similar version after installation.
+> **Note**\
+> This library is frequently updated. Please confirm that you are using the latest or stable version before using it.
 {: .block-tip }
+
+### Using python packages
+
+```python
+import Bili_UAS
 ```
 
-Rendered page can be previewed from
+## FAQ
+**Q: What to do when encountering a bug.**
 
-[https://sighingnow.github.io/jekyll-gitbook/jekyll/2022-06-30-tips_warnings_dangers.html](https://sighingnow.github.io/jekyll-gitbook/jekyll/2022-06-30-tips_warnings_dangers.html)
+F: You can submit an issue on this page. If you do not know how to submit an issue, you can contact me via email or QQ.
 
-## Cover image inside pages
+**Q: I need a feature that is currently not available.**
 
-The jekyll-gitbook theme supports adding a cover image to a specific page by adding
-a `cover` field to the page metadata:
+F: You can describe your requirements by submitting an issue, email, or QQ, but developers may not have the time to 
+write this feature. 
+You can also implement it yourself and initiate a Pull request.
 
-```diff
-  ---
-  title: Page with cover image
-  author: Tao He
-  date: 2022-05-24
-  category: Jekyll
-  layout: post
-+ cover: /assets/jekyll-gitbook/dinosaur.gif
-  ---
-```
+**Q: I want to contribute code to this project.**
 
-The effect can be previewed from
-
-[https://sighingnow.github.io/jekyll-gitbook/jekyll/2022-05-24-page_cover.html](https://sighingnow.github.io/jekyll-gitbook/jekyll/2022-05-24-page_cover.html)
+F: You can fork this project and implement the feature you want to implement, and then initiate a Pull request to main.
+Contribution guidelines: [CONTRIBUTING.md](https://github.com/nemo2011/bilibili-api/blob/main/.github/CONTRIBUTING.md)
 
 ## License
+This library uses the [GNU General Public License v3.0](
+https://www.gnu.org/licenses/gpl-3.0.en.html
+) license.
 
-This work is open sourced under the Apache License, Version 2.0.
+## Appendix
+**Contact developer:** 
+- email: jhzg02200059@163.com
+- QQ: 3465986375
 
-Copyright 2019 Tao He.
+**Appreciate developer:**\
+If you think this library is not bad, you can give it a star or buy a cup of coffee for the developer：
+<img alt="Buy me a coffee" height="300" src="./design/main/appreciation.jpg" width="300"/>
 
-[1]: https://pages.github.com
-[2]: https://pages.github.com/themes
-[3]: https://github.com/sighingnow/jekyll-gitbook/fork
-[4]: https://github.com/allejo/jekyll-toc
-[5]: https://github.com/gitbook-plugins/gitbook-plugin-search-pro
-[6]: https://github.com/rouge-ruby/rouge/tree/master/lib/rouge/themes
-[7]: https://analytics.google.com/analytics/web/
-[8]: https://www.cnzz.com/
-[9]: https://docs.microsoft.com/en-us/azure/azure-monitor/app/app-insights-overview
-[10]: https://github.com/sighingnow/jekyll-gitbook/blob/master/gitbook/custom.css
-[11]: https://discordjs.guide/popular-topics/canvas.html#setting-up-napi-rs-canvas
-[12]: https://rubygems.org/gems/jekyll-remote-theme
-[13]: https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll/adding-a-theme-to-your-github-pages-site-using-jekyll
-[14]: https://github.com/sighingnow/jekyll-gitbook/blob/master/_config.yml
